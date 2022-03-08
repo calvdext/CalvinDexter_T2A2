@@ -57,3 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Devise gem for login as a user 
 gem 'devise'
+
+# Bootstrap for styling
+gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
