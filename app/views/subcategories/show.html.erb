@@ -10,5 +10,9 @@
   <%= @subcategory.category_id %>
 </p>
 
+<% @subcategory.products.each do |product| %>
+  <%= link_to product.title, product_path %>
+<% end %>
+
 <%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
 <%= link_to 'Back', subcategories_path %>
