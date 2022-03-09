@@ -12,16 +12,21 @@
 
   <tbody>
     <% @categories.each do |category| %>
+    
       <tr>
         <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-        <%= category.subcategories.each do |sub| %>
-          <%= sub.name %>
-        <% end %>
+
+      <% category.subcategories.each do |subcategory| %>
+        <td><%= link_to subcategory.name, subcategory_path(id: subcategory.id) %></td>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-
+<%= link_to 'New Category', new_category_path %>
