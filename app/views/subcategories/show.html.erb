@@ -1,17 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @subcategory.name %>
+  <strong>Category:</strong>
+  <%= @subcategory.category.name %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @subcategory.category_id %>
+  <strong>Subcategory:</strong>
+  <%= @subcategory.name %>
 </p>
 
 <% @subcategory.products.each do |product| %>
-  <%= link_to product.title, product_path %>
+<div class="card" style="width: 18rem;">
+<%= image_tag product.image if product.image.attached? %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to product.title, product_path(product) %></h5>
+    <p class="card-text"><%= product.description %></p>
+    <p class="card-text"><%= product.user.username %></p>
+    <p class="card-text"><small class="text-muted"><%= time_ago_in_words product.created_at %></small></p>
+  </div>
+</div>
 <% end %>
 
 <%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
