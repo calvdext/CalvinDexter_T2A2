@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Image:</strong>
+  <%= @product.image %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @product.description %>
 </p>
@@ -22,7 +27,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @product.user_id %>
+  <%= @product.user.username %>
 </p>
 
 <p>

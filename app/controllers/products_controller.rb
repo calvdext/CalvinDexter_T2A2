@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    @product = Product.create(title: product_params[:title], description: product_params[:description], used: product_params[:used], price: product_params[:price], subcategory_id: product_params[:subcategory_id], user: current_user)
+    @product = Product.create(title: product_params[:title], description: product_params[:description], used: product_params[:used], price: product_params[:price], subcategory_id: product_params[:subcategory_id], image: product_params[:image], user: current_user)
 
     respond_to do |format|
       if @product.save
@@ -66,6 +66,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:title, :description, :used, :price, :subcategory_id)
+      params.require(:product).permit(:title, :description, :used, :price, :subcategory_id, :image)
     end
 end
