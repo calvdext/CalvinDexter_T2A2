@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
+  
   def page
-    @categories = Category.all
+    @product = Product.all
   end
 
-  
 end
