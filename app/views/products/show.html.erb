@@ -35,7 +35,8 @@
   <%= @product.subcategory_id %>
 </p>
 
-<%= link_to "Send Message", new_message_path(receiver_id) %>
+
+<%= link_to "Send Message", new_message_path(receiver_id: @product.user, sender_id: current_user, product: @product) %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

@@ -12,21 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
-  <div class="field">
     <%= form.label :sender_id %>
-    <%= form.text_field :sender_id %>
+    <%= form.text_field :sender_id, :value => params[:sender_id] %>
   </div>
 
   <div class="field">
     <%= form.label :receiver_id %>
-    <%= form.text_field :receiver_id %>
+    <%= form.text_field :receiver_id, :value => params[:receiver_id]  %>
   </div>
 
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
