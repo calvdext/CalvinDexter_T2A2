@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Messages</h1>
+<% @messages.each do |message| %>
+  <% if message.sender_id == current_user || message.receiver_id == current_user %>
+    <% if message.sender == current_user %>
+      <% receiver = User.find(message.receiver) %>
+    <% else %>
+        <% receiver = User.find(message.sender) %>
+    <% end %>
+    <%= link_to receiver.username, message_path(message) %>
+  <% end %>
+<% end %>
+
+<br>
+
+<%= link_to 'New Message', new_message_path %>-->
