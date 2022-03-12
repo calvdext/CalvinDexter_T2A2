@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @message = Message.create(sender_id: message_params[:sender_id], content: message_params[:content], receiver_id: message_params[:receiver_id])
+    @message = Message.create(sender_id: message_params[:sender_id], content: message_params[:content], receiver_id: message_params[:receiver_id], product_id: message_params[:product_id])
 
     respond_to do |format|
       if @message.save
@@ -65,6 +65,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:content, :sender_id, :receiver_id)
+      params.require(:message).permit(:content, :sender_id, :receiver_id, :product_id)
     end
 end
