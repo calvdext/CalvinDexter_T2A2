@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :messages
-  resources :products
+  resources :products do 
+    resources :messages, only:[:new, :create]
+  end
   resources :subcategories
   resources :categories
   devise_for :users
