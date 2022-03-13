@@ -7,6 +7,11 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def my_product
+    @users = User.all
+    @products = Product.all
+  end 
+
   # GET /products/1 or /products/1.json
   def show
   end
