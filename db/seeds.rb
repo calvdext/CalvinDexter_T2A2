@@ -65,11 +65,9 @@ Subcategory.create([
 Subcategory.create([
     { name: 'Art', category: categories[3] },
     { name: 'Bath', category: categories[3] },
-    { name: 'Bedding', category: categories[3] },
     { name: 'Design', category: categories[3] },
     { name: 'Dining', category: categories[3] },
     { name: 'Games', category: categories[3] },
     { name: 'Kitchen', category: categories[3] },
     { name: 'Office', category: categories[3] },
-    { name: 'Party Supplies', category: categories[3] }
 ])
