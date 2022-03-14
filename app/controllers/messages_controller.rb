@@ -1,8 +1,10 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :index, :show]
 
   # GET /messages or /messages.json
   def index
+    @product = Product.all
     @messages = Message.all
   end
 

@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
+  # Restricting accsess for users and non logged in users with admin only before actions
+  before_action :authenticate_admin!, only: [:new, :create, :update, :edit, :destory, :show]
+  before_action :authenticate_user!, only: [:index]
 
   # GET /categories or /categories.json
   def index

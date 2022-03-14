@@ -1,5 +1,8 @@
 class SubcategoriesController < ApplicationController
   before_action :set_subcategory, only: %i[ show edit update destroy ]
+  # Restricting accsess for users and non logged in users with admin only before actions
+  before_action :authenticate_admin!, only: [:new, :create, :update, :edit, :destory, :index]
+  before_action :authenticate_user!, only: [:show]
 
   # GET /subcategories or /subcategories.json
   def index

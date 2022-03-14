@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  # Restricting accsess for non logged in users with user only before action
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :index, :show]
 
   # GET /products or /products.json
   def index
