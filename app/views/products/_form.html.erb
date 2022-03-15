@@ -10,38 +10,43 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <div class="card mb-3 mx-auto" style="max-width: 540px;">
+    <div class="card-body">
+      <div class="field mb-3">
+        <%= form.label :subcategory_id, { class: "form-label"} %>
+        <%= form.select :subcategory_id, Subcategory.all.collect {|s| [ s.name, s.id ] } %>
+      </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, accept: "image/jpg, image/png, image/jpeg" %>
-  </div>
+      <div class="field mb-3">
+        <%= form.label :title, { class: "form-label"} %>
+        <%= form.text_field :title, { class: "form-control"} %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+      <div class="field mb-3">
+        <%= form.label :description, { class: "form-label"} %>
+        <%= form.text_area :description, { class: "form-control", rows: "5" } %>
+      </div>
 
-  <div class="field">
-    <%= form.label :used %>
-    <%= form.check_box :used %>
-  </div>
+      <div class="field mb-3">
+        <%= form.label :price, { class: "form-label"} %>
+        <%= form.text_field :price, { class: "form-control", rows: "5"} %>
+      </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
+      <div class="field mb-3">
+        <%= form.label :image, { class: "form-label"} %>
+        <%= form.file_field :image, accept: "image/jpg, image/png, image/jpeg" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :subcategory_id %>
-    <%= form.select :subcategory_id, Subcategory.all.collect {|s| [ s.name, s.id ] } %>
-  </div>
+      <div class="field mb-3">
+        <%= form.label :used, { class: "form-label"} %>
+        <%= form.check_box :used %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<br>
