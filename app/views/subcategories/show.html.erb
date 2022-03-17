@@ -1,26 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @subcategory.category.name %>
-</p>
-
-<p>
-  <strong>Subcategory:</strong>
-  <%= @subcategory.name %>
-</p>
-
-<% @subcategory.products.each do |product| %>
-<div class="card" style="width: 18rem;">
-<%= image_tag product.image if product.image.attached? %>
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to product.title, product_path(product) %></h5>
-    <p class="card-text"><%= product.description %></p>
-    <p class="card-text"><%= product.user.username %></p>
-    <p class="card-text"><small class="text-muted"><%= time_ago_in_words product.created_at %></small></p>
+<h1><%= @subcategory.category.name %> >> <%= @subcategory.name %></h1>
+ 
+<% @subcategory.products.reverse_each do |product| %>
+  <div class="card mb-3 mx-auto" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= image_tag product.image, class: "card-img" if product.image.attached? %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to product.title, product_path(product) %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <p class="card-text"><small class="text-muted"><%= time_ago_in_words product.created_at %></small></p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 <% end %>
-
-<%= link_to 'Edit', edit_subcategory_path(@subcategory) %> |
-<%= link_to 'Back', categories_path %>

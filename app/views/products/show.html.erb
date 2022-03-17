@@ -1,42 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @product.image if @product.image.attached? %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Used:</strong>
-  <%= @product.used %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @product.user.username %>
-</p>
-
-<p>
-  <strong>Subcategory:</strong>
-  <%= @product.subcategory_id %>
-</p>
-
-
-<%= link_to "Send Message", new_message_path(receiver_id: @product.user, sender_id: current_user, product_id: @product) %>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="card col-9 mx-auto">
+  <div class="card-header">
+    Posted By <%= @product.user.username %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @product.title %></h5>
+    <div class="mx-auto">
+        <%= image_tag @product.image, class: "card-img" if @product.image.attached? %>
+    </div>
+    <p class="card-text"><strong>Description: </strong><%= @product.description %></p>
+    <p class="card-text"><strong>Used: </strong><%= @product.used %></p>
+    <p class="card-text"><strong>Price: </strong>$ <%= @product.price %></p>
+    <%= link_to "Send Message", new_message_path(receiver_id: @product.user, sender_id: current_user, product_id: @product), class: "btn btn-primary" %>
+  </div>
+</div>

@@ -16,6 +16,14 @@ pre {
 a {
   color: #000; }
 
+a:link {
+  text-decoration: none;
+  color: #000; }
+
+a:visited {
+  text-decoration: none; 
+  color: #000; }
+
 a:hover {
   color: #fff;
   background-color: rgba(253, 253, 253, 0.493); }
