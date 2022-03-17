@@ -2,12 +2,12 @@
 
 <br>
 
-<div class="container">
-  <div class="row align-items-center">
+<div class="container flex-nowrap ">
+  <div class="align-items-center">
     <div class="list-group list-group-flush">
       <div class="card col-sm-3 align-self-center" style="width: 18rem;">
       <% @categories.each do |category| %>
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-center">
           <%= category.name %>
         </div>
         <% category.subcategories.each do |subcategory| %>

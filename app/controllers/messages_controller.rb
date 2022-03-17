@@ -10,6 +10,8 @@ class MessagesController < ApplicationController
 
   # GET /messages/1 or /messages/1.json
   def show
+    @user = User.all
+    @messages = Message.all
   end
 
   # GET /messages/new
